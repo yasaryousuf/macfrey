@@ -1,0 +1,27 @@
+.news .page-navigation p {
+    float: left;
+}
+.news .page-navigation ul {
+    float: right;
+}
+.news .page-navigation ul li {
+    float: left;
+    display: block;
+    padding: 0 2px;
+    background: none;
+}
+.news .page-navigation ul li a {
+    display: block;
+}
+.news .article {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.news .article:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
