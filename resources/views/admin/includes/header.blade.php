@@ -122,11 +122,11 @@
           </li>
           <li class="nav-item dropdown d-none d-xl-inline-block">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <span class="profile-text">Hello, Richard V.Welsh !</span>
+              <span class="profile-text">Hello, {{Auth::user()->name}} !</span>
               <img class="img-xs rounded-circle" src="{{asset('admin')}}/images/faces/face1.jpg" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item p-0">
+              {{-- <a class="dropdown-item p-0">
                 <div class="d-flex border-bottom">
                   <div class="py-3 px-4 d-flex align-items-center justify-content-center">
                     <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
@@ -138,7 +138,7 @@
                     <i class="mdi mdi-alarm-check mr-0 text-gray"></i>
                   </div>
                 </div>
-              </a>
+              </a> --}}
               <a class="dropdown-item mt-2">
                 Manage Accounts
               </a>
@@ -148,9 +148,17 @@
               <a class="dropdown-item">
                 Check Inbox
               </a>
-              <a class="dropdown-item">
+              {{-- <a class="dropdown-item">
                 Sign Out
-              </a>
+              </a> --}}
+
+<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
+    Logout
+</a>    
+<form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{ csrf_field() }}
+</form>    
+              
             </div>
           </li>
         </ul>
