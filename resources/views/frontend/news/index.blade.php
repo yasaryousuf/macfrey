@@ -28,38 +28,8 @@
                     <div class="news">
 
                         <div class="news-list-view">
-
                             <div class="page-navigation">
-                                <p>
-                                    Page 1 of 15.
-                                </p>
-                                <ul class="f3-widget-paginator">
-
-                                    <li class="current">1</li>
-
-                                    <li>
-
-                                        <a href="en/news/page/2.html">2</a>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="en/news/page/3.html">3</a>
-
-                                    </li>
-
-                                    <li>....</li>
-
-                                    <li class="last">
-                                        <a href="en/news/page/15.html">15</a>
-                                    </li>
-
-                                    <li class="last next">
-                                        <a href="en/news/page/2.html">Next</a>
-                                    </li>
-
-                                </ul>
+                            {{ $news->links('pagination.default') }}
                             </div>
 
 
@@ -74,7 +44,7 @@
 
                                         <div class="news-img-wrap">
 
-                                            <a href="{{url("/news/{$singleNews->id}")}}">
+                                            <a href="{{url("/news/{$singleNews->slug}")}}">
 
                                                 <img src="{{$singleNews->thumbnail ? asset('/images/news/thumbnails/'. $singleNews->thumbnail ) : asset('/images/No_Image.svg')}}" width="214" height="136" alt="">
 
@@ -91,7 +61,7 @@
 
                                         <!-- header -->
                                         <h3>
-                                        <a href="{{url("/news/{$singleNews->id}")}}">
+                                        <a href="{{url("/news/{$singleNews->slug}")}}">
                                             {{$singleNews->title}}
                                         </a>
                                     </h3>
@@ -103,7 +73,7 @@
                                             <br>
                                             <br>
 
-                                            <a class="more button cicolor" href="{{url("/news/{$singleNews->id}")}}">
+                                            <a class="more button cicolor" href="{{url("/news/{$singleNews->slug}")}}">
                                             Read more
                                         </a>
                                         </div>
@@ -115,37 +85,9 @@
 
                             {{-- SINGLE NEWS ENDS --}}
 
+  
                             <div class="page-navigation">
-                                <p>
-                                    Page 1 of 15.
-                                </p>
-                                <ul class="f3-widget-paginator">
-
-                                    <li class="current">1</li>
-
-                                    <li>
-
-                                        <a href="en/news/page/2.html">2</a>
-
-                                    </li>
-
-                                    <li>
-
-                                        <a href="en/news/page/3.html">3</a>
-
-                                    </li>
-
-                                    <li>....</li>
-
-                                    <li class="last">
-                                        <a href="en/news/page/15.html">15</a>
-                                    </li>
-
-                                    <li class="last next">
-                                        <a href="en/news/page/2.html">Next</a>
-                                    </li>
-
-                                </ul>
+                            {{ $news->links('pagination.default') }}
                             </div>
 
                             <div class="news-clear"></div>

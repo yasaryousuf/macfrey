@@ -5,7 +5,7 @@
             <div class="nav-link">
               <div class="user-wrapper">
                 <div class="profile-image">
-                  <img src="{{asset('admin')}}/images/faces/face1.jpg" alt="profile image">
+                  <img src="{{ Auth::user()->profile_image ? asset('/images/profile_image/'.Auth::user()->profile_image) : asset('/images/profile_image/avatar.png') }}" alt="profile image">
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">{{Auth::user()->name}}</p>
@@ -24,6 +24,28 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
+
+          
+      
+
+          <li class="nav-item {{Request::is('admin/profile*') ? ' active' : ''}}">
+            <a class="nav-link" data-toggle="collapse" href="#admin-profile-menu" aria-expanded="false" aria-controls="admin-profile-menu">
+              <i class="menu-icon mdi mdi-account"></i>
+              <span class="menu-title">Profile</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse {{Request::is('admin/profile*') ? ' show' : ''}}" id="admin-profile-menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                <a class="nav-link {{Request::is('admin/profile/edit') ? ' active' : ''}}" href="/admin/profile/edit">Edit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{Request::is('admin/profile/change-password') ? ' active' : ''}}" href="/admin/profile/change-password">Change Password</a>
+                </li>
+              </ul>
+            </div>
+          </li>         
 
           <li class="nav-item {{Request::is('admin/news*') ? ' active' : ''}}">
             <a class="nav-link" data-toggle="collapse" href="#admin-news-menu" aria-expanded="false" aria-controls="admin-news-menu">

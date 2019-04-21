@@ -43,6 +43,12 @@ Route::delete('company/{id}', 'CompanyController@destroy')->name('company.destro
 Route::post('contact', 'ContactController@store');
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::post('/admin/profile', 'AdminController@saveProfile');
+    Route::get('/admin/profile/edit', 'AdminController@showEditProfilePage');
+    Route::get('/admin/profile/change-password', 'AdminController@showEditPasswordPage');
+    Route::post('/admin/profile/change-password', 'AdminController@saveChangePassword');
+
     Route::get('/admin/home', 'AdminController@index');
 
 

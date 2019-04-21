@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::paginate(15);
+        $news = News::paginate(1);
         return view('frontend.news.index', compact('news'));
     }
     public function adminIndex()
@@ -52,7 +52,7 @@ class NewsController extends Controller
         if($request->hasfile('thumbnail'))
         {
             $image  = $request->file('thumbnail');
-            $thumbnail_name   = $image->getClientOriginalName();
+            $thumbnail_name   = time().'_'.$image->getClientOriginalName();
             $image->move(public_path().'/images/news/thumbnails/', $thumbnail_name);  
         }
 
