@@ -39,6 +39,10 @@ Route::put('company/{id}', 'CompanyController@update')->name('company.update');
 Route::post('company', 'CompanyController@store');
 Route::delete('company/{id}', 'CompanyController@destroy')->name('company.destroy');
 
+Route::post('component_category', 'ComponentCategoryController@store');
+Route::put('component_category/{id}', 'ComponentCategoryController@update')->name('component_category.update');
+Route::delete('component_category/{id}', 'ComponentCategoryController@destroy')->name('component_category.destroy');
+
 
 Route::post('contact', 'ContactController@store');
 
@@ -65,5 +69,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/company/{id}/edit', 'CompanyController@edit');
 
     Route::get('admin/contact', 'ContactController@adminIndex');
+
+    Route::get('admin/component_category', 'ComponentCategoryController@adminIndex');
+    Route::get('admin/component_category/create', 'ComponentCategoryController@create');
+    Route::get('admin/component_category/{id}/edit', 'ComponentCategoryController@edit');
 
 });

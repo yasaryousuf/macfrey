@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ComponentCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ComponentCategoryController extends Controller
 {
@@ -16,6 +17,11 @@ class ComponentCategoryController extends Controller
     {
         //
     }
+    public function adminIndex()
+    {
+        $componentCategories = ComponentCategory::all();
+        return view('admin.component_category.index', compact('componentCategories'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +30,8 @@ class ComponentCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $componentCategories = ComponentCategory::whereNull('parent_id')->get();
+        return view('admin.component_category.create', compact('componentCategories'));
     }
 
     /**
@@ -35,7 +42,21 @@ class ComponentCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+
+        $ComponentCategory = new ComponentCategory();
+        $ComponentCategory->name = $request->name;
+        $ComponentCategory->slug = Str::slug($request->name);
+        // if (!empty($request->parent_id)) {
+            $ComponentCategory->parent_id = $request->parent_id;
+        // }
+
+        $ComponentCategory->save();
+
+        return back()->with('message', 'Successfully saved.');        
     }
 
     /**
@@ -55,9 +76,11 @@ class ComponentCategoryController extends Controller
      * @param  \App\ComponentCategory  $componentCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(ComponentCategory $componentCategory)
+    public function edit($id)
     {
-        //
+        $componentCategories = ComponentCategory::whereNull('parent_id')->get();
+        $componentCategory = ComponentCategory::find($id); 
+        return view('admin.component_category.edit', compact('componentCategory', 'componentCategories'));
     }
 
     /**
@@ -67,9 +90,23 @@ class ComponentCategoryController extends Controller
      * @param  \App\ComponentCategory  $componentCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ComponentCategory $componentCategory)
+    public function update(Request $request, $id)
     {
-        //
+       $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+
+        $ComponentCategory = ComponentCategory::find($id);
+        $ComponentCategory->name = $request->name;
+        $ComponentCategory->slug = Str::slug($request->name);
+        // if (!empty($request->parent_id)) {
+            $ComponentCategory->parent_id = $request->parent_id;
+        // }
+
+        $ComponentCategory->save();
+
+        return back()->with('message', 'Successfully saved.');  
     }
 
     /**
@@ -78,8 +115,11 @@ class ComponentCategoryController extends Controller
      * @param  \App\ComponentCategory  $componentCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ComponentCategory $componentCategory)
+    public function destroy($id)
     {
-        //
+        $componentCategory =  ComponentCategory::find($id);
+        $componentCategory->delete();
+  
+        return back()->with('success','Product deleted successfully');
     }
 }
