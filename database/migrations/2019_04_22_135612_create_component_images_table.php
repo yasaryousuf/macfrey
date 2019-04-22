@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComponentsTable extends Migration
+class CreateComponentImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateComponentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('components', function (Blueprint $table) {
+        Schema::create('component_images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('component_category_id');
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description')->nullable();
-            $table->boolean('is_top')->nullable();
+            $table->integer('component_id');
+            $table->string('color')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateComponentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('component_images');
     }
 }

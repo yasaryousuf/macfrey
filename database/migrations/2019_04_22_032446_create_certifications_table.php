@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComponentsTable extends Migration
+class CreateCertificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateComponentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('components', function (Blueprint $table) {
+        Schema::create('certifications', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('component_category_id');
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description')->nullable();
-            $table->boolean('is_top')->nullable();
+            $table->integer('component_id');
+            $table->string('ip')->nullable();
+            $table->string('certifications')->nullable();
+            $table->string('salt_spray_test_standard')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateComponentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('components');
+        Schema::dropIfExists('certifications');
     }
 }

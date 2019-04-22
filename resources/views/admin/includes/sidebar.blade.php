@@ -43,7 +43,27 @@
               </ul>
             </div>
           </li>
-          {{-- Component Category Ends --}}        
+          {{-- Component Category Ends --}}      
+
+          {{-- Component --}}
+          <li class="nav-item {{Request::is('admin/component*') ? ' active' : ''}}">
+            <a class="nav-link" data-toggle="collapse" href="#admin-component-menu" aria-expanded="false" aria-controls="admin-component-menu">
+              <i class="menu-icon mdi mdi-message-settings-variant"></i>
+              <span class="menu-title">Category</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse {{Request::is('admin/component*') ? ' show' : ''}}" id="admin-component-menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                <a class="nav-link {{Request::is('admin/component/create') ? ' active' : ''}}" href="/admin/component/create">Add Category</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{Request::is('admin/component') ? ' active' : ''}}" href="/admin/component/">All Category</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {{-- Component Ends --}}      
       
 
           <li class="nav-item {{Request::is('admin/profile*') ? ' active' : ''}}">
