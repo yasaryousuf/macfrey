@@ -159,35 +159,35 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension A</label>
-                        <input type="text" class="form-control" placeholder="dimension A" name="dimension[a]">
+                        <input type="text" class="form-control" placeholder="dimension A" name="dimension[A]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension B</label>
-                        <input type="text" class="form-control" placeholder="dimension B" name="dimension[b]">
+                        <input type="text" class="form-control" placeholder="dimension B" name="dimension[B]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension C</label>
-                        <input type="text" class="form-control" placeholder="dimension C" name="dimension[c]">
+                        <input type="text" class="form-control" placeholder="dimension C" name="dimension[C]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension D</label>
-                        <input type="text" class="form-control" placeholder="dimension D" name="dimension[d]">
+                        <input type="text" class="form-control" placeholder="dimension D" name="dimension[D]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension E</label>
-                        <input type="text" class="form-control" placeholder="dimension E" name="dimension[e]">
+                        <input type="text" class="form-control" placeholder="dimension E" name="dimension[E]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension F</label>
-                        <input type="text" class="form-control" placeholder="dimension F" name="dimension[f]">
+                        <input type="text" class="form-control" placeholder="dimension F" name="dimension[F]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension G</label>
-                        <input type="text" class="form-control" placeholder="dimension G" name="dimension[g]">
+                        <input type="text" class="form-control" placeholder="dimension G" name="dimension[G]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension H</label>
-                        <input type="text" class="form-control" placeholder="dimension H" name="dimension[h]">
+                        <input type="text" class="form-control" placeholder="dimension H" name="dimension[H]">
                     </div> 
                     <div class="form-group">
                         <label for="exampleInputName1">Dimension WL</label>
@@ -208,7 +208,7 @@
 
                         <label for="customFile">White Image 1</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="thumbnail" onchange="document.getElementById('white-image-1-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <input type="file" class="custom-file-input" name="white_image_1" onchange="document.getElementById('white-image-1-preview').src = window.URL.createObjectURL(this.files[0])">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
 
                         <label for="customFile">White Image 2</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="thumbnail" onchange="document.getElementById('white-image-2-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <input type="file" class="custom-file-input" name="white_image_2" onchange="document.getElementById('white-image-2-preview').src = window.URL.createObjectURL(this.files[0])">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
 
                         <label for="customFile">Black Image 1</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="thumbnail" onchange="document.getElementById('black-image-1-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <input type="file" class="custom-file-input" name="black_image_1" onchange="document.getElementById('black-image-1-preview').src = window.URL.createObjectURL(this.files[0])">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
 
                         <label for="customFile">Black Image 2</label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="thumbnail" onchange="document.getElementById('black-image-2-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <input type="file" class="custom-file-input" name="black_image_2" onchange="document.getElementById('black-image-2-preview').src = window.URL.createObjectURL(this.files[0])">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
