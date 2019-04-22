@@ -46,19 +46,19 @@
           {{-- Component Category Ends --}}      
 
           {{-- Component --}}
-          <li class="nav-item {{Request::is('admin/component*') ? ' active' : ''}}">
+          <li class="nav-item {{Request::is('admin/component/create') ? ' active' : ''}}{{Request::is('admin/component') ? ' active' : ''}}">
             <a class="nav-link" data-toggle="collapse" href="#admin-component-menu" aria-expanded="false" aria-controls="admin-component-menu">
               <i class="menu-icon mdi mdi-message-settings-variant"></i>
-              <span class="menu-title">Category</span>
+              <span class="menu-title">Component</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse {{Request::is('admin/component*') ? ' show' : ''}}" id="admin-component-menu">
+            <div class="collapse {{Request::is('admin/component/create') ? ' show' : ''}}{{Request::is('admin/component') ? ' active' : ''}}" id="admin-component-menu">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                <a class="nav-link {{Request::is('admin/component/create') ? ' active' : ''}}" href="/admin/component/create">Add Category</a>
+                <a class="nav-link {{Request::is('admin/component/create') ? ' active' : ''}}" href="/admin/component/create">Add Component</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{Request::is('admin/component') ? ' active' : ''}}" href="/admin/component/">All Category</a>
+                  <a class="nav-link {{Request::is('admin/component') ? ' active' : ''}}" href="/admin/component/">All Component</a>
                 </li>
               </ul>
             </div>

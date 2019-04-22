@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Component;
 use Illuminate\Http\Request;
+use App\ComponentCategory;
+use Illuminate\Support\Str;
 
 class ComponentController extends Controller
 {
@@ -24,7 +26,8 @@ class ComponentController extends Controller
      */
     public function create()
     {
-        //
+        $componentCategories = ComponentCategory::whereNotNull('parent_id')->get();
+        return view('admin.component.create', compact('componentCategories'));
     }
 
     /**
@@ -35,7 +38,57 @@ class ComponentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'dimension_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $Component = new Component();
+        $Component->name = $request->name;
+        $Component->slug = Str::slug($request->name);
+        $Component->description = $request->description;
+        $Component->save();
+
+        $CoreDataArr = $request->core_data;
+        $CoreDataArr['component_id'] = $Component->id;
+
+
+        $CoreData = \App\CoreData::create($CoreDataArr);
+
+        $MountingParameterArr = $request->mounting_parameters;
+        $MountingParameterArr['component_id'] = $Component->id;
+
+        $MountingParameter = \App\MountingParameter::create($MountingParameterArr);
+        
+
+        $FurtherSpecificationArr = $request->further_specifications;
+        $FurtherSpecificationArr['component_id'] = $Component->id;
+
+        $FurtherSpecification = \App\FurtherSpecification::create($FurtherSpecificationArr);
+
+
+        $CertificationArr = $request->certification;
+        $CertificationArr['component_id'] = $Component->id;
+
+        $Certification = \App\Certification::create($CertificationArr);
+
+        $DimensionArr = $request->dimension;
+        $DimensionArr['component_id'] = $Component->id;
+        $dimension_image_name = '';
+
+        if($request->hasfile('dimension_image'))
+        {
+            $image  = $request->file('dimension_image');
+            $dimension_image_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/dimension/', $dimension_image_name);  
+        }
+
+        if ($dimension_image_name) {
+            $DimensionArr['image'] = $dimension_image_name;
+        }
+
+        $Dimension = \App\Dimension::create($DimensionArr);
     }
 
     /**

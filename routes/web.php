@@ -44,6 +44,9 @@ Route::put('component_category/{id}', 'ComponentCategoryController@update')->nam
 Route::delete('component_category/{id}', 'ComponentCategoryController@destroy')->name('component_category.destroy');
 
 
+Route::post('component', 'ComponentController@store');
+
+
 Route::post('contact', 'ContactController@store');
 
 Route::middleware(['auth'])->group(function () {
@@ -73,5 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/component_category', 'ComponentCategoryController@adminIndex');
     Route::get('admin/component_category/create', 'ComponentCategoryController@create');
     Route::get('admin/component_category/{id}/edit', 'ComponentCategoryController@edit');
+
+    Route::get('admin/component/create', 'ComponentController@create');
 
 });

@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Certification extends Model
 {
-    public function phone()
-    {
-        return $this->hasOne('App\Phone');
-    }
+    protected $fillable = [
+        'component_id',
+        'ip',
+        'certifications',
+        'salt_spray_test_standard',
+
+    ];
+
 }
