@@ -16,9 +16,21 @@ class ComponentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category)
     {
-        //
+        $components = [];
+        $ComponentCategory = ComponentCategory::where('slug', $category)->first();
+        $categoryChildren = $ComponentCategory->children;
+        foreach ($categoryChildren as $category ) {
+            $components[$category->name] = Component::where('component_category_id', $category->id)->get();
+        }
+       
+        return view('frontend.component.index', compact('components'));
+    }
+    public function adminIndex()
+    {
+        $components = Component::all();
+        return view('admin.component.index', compact('components'));
     }
 
     /**
@@ -53,6 +65,7 @@ class ComponentController extends Controller
         $Component = new Component();
         $Component->name = $request->name;
         $Component->slug = Str::slug($request->name);
+        $Component->component_category_id = $request->parent_id;
         $Component->description = $request->description;
         $Component->save();
 
@@ -172,9 +185,11 @@ class ComponentController extends Controller
      * @param  \App\Component  $component
      * @return \Illuminate\Http\Response
      */
-    public function edit(Component $component)
+    public function edit($id)
     {
-        //
+        $componentCategories = ComponentCategory::whereNotNull('parent_id')->get();
+        $Component = Component::find($id); 
+        return view('admin.component.edit', compact('Component', 'componentCategories'));
     }
 
     /**
@@ -195,8 +210,44 @@ class ComponentController extends Controller
      * @param  \App\Component  $component
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Component $component)
+    public function destroy($id)
     {
-        //
+        $component =  Component::find($id);
+        $component->delete();
+
+        $CoreData = \App\CoreData::where('component_id', $id)->first();
+        if ($CoreData->first()) {
+            $CoreData->delete();
+        }
+        
+        
+        $MountingParameter = \App\MountingParameter::where('component_id', $id)->first();
+        if ($MountingParameter->first()) {
+            $MountingParameter->delete();
+        }
+        
+        $FurtherSpecification = \App\FurtherSpecification::where('component_id', $id)->first();
+        if ($FurtherSpecification->first()) {
+            $FurtherSpecification->delete();
+        }
+        
+        $Certification = \App\Certification::where('component_id', $id)->first();
+        if ($Certification->first()) {
+            $Certification->delete();
+        }
+        
+        $Dimention = \App\Dimention::where('component_id', $id)->first();
+        if ($Dimention->first()) {
+            $Dimention->delete();
+        }
+        
+        $ComponentImages = \App\ComponentImage::where('component_id', $id)->get();
+
+        foreach ($ComponentImages as $ComponentImage ) {
+            $ComponentImage->delete();
+        }
+        
+  
+        return back()->with('success','Product deleted successfully');
     }
 }

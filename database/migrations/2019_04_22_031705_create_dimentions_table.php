@@ -16,7 +16,7 @@ class CreateDimentionsTable extends Migration
         Schema::create('dimentions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('component_id');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('A')->nullable();
             $table->string('B')->nullable();
             $table->string('C')->nullable();

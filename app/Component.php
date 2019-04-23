@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Component extends Model
 {
+    public function category()
+    {
+        return $this->belongsTo('App\ComponentCategory', 'component_category_id');
+    }
     public function certification()
     {
         return $this->hasOne('App\Certification');

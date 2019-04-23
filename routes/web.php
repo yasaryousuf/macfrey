@@ -43,8 +43,11 @@ Route::post('component_category', 'ComponentCategoryController@store');
 Route::put('component_category/{id}', 'ComponentCategoryController@update')->name('component_category.update');
 Route::delete('component_category/{id}', 'ComponentCategoryController@destroy')->name('component_category.destroy');
 
+Route::delete('component/{id}', 'ComponentController@destroy')->name('component.destroy');
 
+Route::get('component/{subcategory}', 'ComponentController@index');
 Route::post('component', 'ComponentController@store');
+Route::put('component/{id}', 'ComponentController@update')->name('component.update');
 
 
 Route::post('contact', 'ContactController@store');
@@ -77,6 +80,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/component_category/create', 'ComponentCategoryController@create');
     Route::get('admin/component_category/{id}/edit', 'ComponentCategoryController@edit');
 
+    Route::get('admin/component', 'ComponentController@adminIndex');
     Route::get('admin/component/create', 'ComponentController@create');
+    Route::get('admin/component/{id}/edit', 'ComponentController@edit');
 
 });

@@ -44,7 +44,7 @@
                         <ul>
 
                             <li class="">
-                                <a href="../components/motor.html">
+                                <a href="/components/motor">
                                     <i class="orange icon">
 								<span class="papicon_motor"></span>
 								</i>
@@ -55,7 +55,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/hmi.html">
+                                <a href="/components/hmi">
                                     <i class="yellow icon">
 								<span class="papicon_hmi"></span>
 								</i>
@@ -66,7 +66,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/battery.html">
+                                <a href="/components/battery">
                                     <i class="green icon">
 								<span class="papicon_battery"></span>
 								</i>
@@ -77,7 +77,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/sensor.html">
+                                <a href="/components/sensor">
                                     <i class="turquoise icon">
 								<span class="papicon_sensor"></span>
 								</i>
@@ -88,7 +88,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/controller.html">
+                                <a href="/components/controller">
                                     <i class="lightblue icon">
 								<span class="papicon_controller"></span>
 								</i>
@@ -99,7 +99,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/connector.html">
+                                <a href="/components/connector">
                                     <i class="blue icon">
 								<span class="papicon_connector"></span>
 								</i>
@@ -110,7 +110,7 @@
                             </li>
 
                             <li class="">
-                                <a href="../components/accessoires.html">
+                                <a href="/components/accessoires">
                                     <i class="lightgrey icon">
 								<span class="papicon_accessories"></span>
 								</i>
