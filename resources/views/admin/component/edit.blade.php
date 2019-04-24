@@ -10,15 +10,16 @@
                 <p class="card-description">
                     Edit component
                 </p>
-                <form action="{{url('component')}}" method="POST" name="create-component" enctype="multipart/form-data">
+                <form action="{{url('component/update')}}" method="POST" name="create-component" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="id" value="{{$Component->id}}">
                     <h4 style="margin-top:45px">Basic Information</h4> <hr>
                     <div class="form-group">
                         <label for="exampleFormControlSelect2">Parent Category:</label>
                         <select class="form-control" id="exampleFormControlSelect2" name="parent_id">
                             <option value="" selected disabled>Choose your option</option>
                             @foreach ($componentCategories as $componentCategory)
-                                <option value="{{$componentCategory->id}}" <?= ($componentCategory->id==$Component->component_category_id? ' selected' : '') ?>>{{$componentCategory->name}}</option>
+                                <option value="{{$componentCategory->id}}" <?= ($componentCategory->id==$Component->component_category_id ? ' selected' : '') ?>>{{$componentCategory->name}}</option>
                             @endforeach
 
                         </select>
@@ -35,6 +36,7 @@
 
 
                     <h4 style="margin-top:45px">Core Data</h4> <hr>
+                    <input type="hidden" name="code_data_id" value="{{$Component->core_data->id}}">
                     <div class="form-group">
                         <label for="exampleInputName1">Position</label>
                         <input type="text" class="form-control" placeholder="position" name="core_data[position]"  value="{{$Component->core_data->position}}">
@@ -91,6 +93,7 @@
 
 
                     <h4 style="margin-top:45px">Mounting Parameters</h4> <hr>
+                    <input type="hidden" name="mounting_parameter_id" value="{{$Component->mounting_parameter->id}}">
                     <div class="form-group">
                         <label for="exampleInputName1">Brake</label>
                         <input type="text" class="form-control" placeholder="brake" name="mounting_parameters[brake]" value="{{$Component->mounting_parameter->brake}}">
@@ -119,6 +122,7 @@
 
 
                     <h4 style="margin-top:45px">Further Specifications</h4> <hr>
+                    <input type="hidden" name="further_specification_id" value="{{$Component->further_specification->id}}">
                     <div class="form-group">
                         <label for="exampleInputName1">Speed Detection Signal (Pulses/Cycle)</label>
                         <input type="text" class="form-control" placeholder="speed_detection_signal" name="further_specifications[speed_detection_signal]" value="{{$Component->further_specification->speed_detection_signal}}">
@@ -133,6 +137,7 @@
                     </div> 
 
                     <h4 style="margin-top:45px">Tests & Certifications</h4> <hr>
+                    <input type="hidden" name="certification_id" value="{{$Component->certification->id}}">
                     <div class="form-group">
                         <label for="exampleInputName1">IP</label>
                         <input type="text" class="form-control" placeholder="ip" name="certification[ip]" value="{{$Component->certification->ip}}">
@@ -148,6 +153,7 @@
 
 
                     <h4 style="margin-top:45px">Dimensions</h4> <hr>
+                    <input type="hidden" name="dimention_id" value="{{$Component->dimention->id}}">
                     <img id="dimention-image-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$Component->dimention->image ? asset('/images/dimension/'.$Component->dimention->image) : asset('/images/No_Image.svg')}}"/>
                     <div class="form-group">
 
@@ -201,9 +207,20 @@
                         <label for="exampleInputName1">Dimension OLD</label>
                         <input type="text" class="form-control" placeholder="dimension OLD" name="dimension[old]" value="{{$Component->dimention->old}}">
                     </div> 
-
+                    <?php 
+                    $i = 0;
+                        foreach ($Component->images as $image_row ) {
+                            $component_image[$i] = $image_row->image;
+                            $component_image_id[$i] = $image_row->id;
+                            $i++;
+                        }
+                    ?>
                     <h4 style="margin-top:45px">Component Images</h4> <hr>
-                    <img id="white-image-1-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$Component->images[0]->image ? asset('/images/dimension/'.$Component->images[0]->image) : asset('/images/No_Image.svg')}}"/>
+                    <input type="hidden" name="white_image_1_id" value="{{$component_image_id[0]}}">
+                    <input type="hidden" name="white_image_2_id" value="{{$component_image_id[1]}}">
+                    <input type="hidden" name="black_image_2_id" value="{{$component_image_id[3]}}">
+                    <input type="hidden" name="black_image_1_id" value="{{$component_image_id[2]}}">
+                    <img id="white-image-1-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$component_image[0] ? asset('/images/component_image/'.$component_image[0]) : asset('/images/No_Image.svg')}}"/>
                     <div class="form-group">
 
                         <label for="customFile">White Image 1</label>
@@ -212,7 +229,7 @@
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
-                    <img id="white-image-2-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$Component->images[1]->image ? asset('/images/dimension/'.$Component->images[1]->image) : asset('/images/No_Image.svg')}}"/>
+                    <img id="white-image-2-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$component_image[1] ? asset('/images/component_image/'.$component_image[1]) : asset('/images/No_Image.svg')}}"/>
                     <div class="form-group">
 
                         <label for="customFile">White Image 2</label>
@@ -221,7 +238,7 @@
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
-                    <img id="black-image-1-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$Component->images[2]->image ? asset('/images/dimension/'.$Component->images[2]->image) : asset('/images/No_Image.svg')}}"/>
+                    <img id="black-image-1-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$component_image[2] ? asset('/images/component_image/'.$component_image[2]) : asset('/images/No_Image.svg')}}"/>
                     <div class="form-group">
 
                         <label for="customFile">Black Image 1</label>
@@ -230,7 +247,7 @@
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
-                    <img id="black-image-2-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$Component->images[3]->image ? asset('/images/dimension/'.$Component->images[3]->image) : asset('/images/No_Image.svg')}}"/>
+                    <img id="black-image-2-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{$component_image[3] ? asset('/images/component_image/'.$component_image[3]) : asset('/images/No_Image.svg')}}"/>
                     <div class="form-group">
 
                         <label for="customFile">Black Image 2</label>

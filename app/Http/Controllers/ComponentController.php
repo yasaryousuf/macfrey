@@ -199,9 +199,134 @@ class ComponentController extends Controller
      * @param  \App\Component  $component
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Component $component)
+    public function update(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'dimension_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'white_image_1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'white_image_2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'black_image_1' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'black_image_2' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $Component = Component::find($request->id);
+        $Component->name = $request->name;
+        $Component->slug = Str::slug($request->name);
+        $Component->component_category_id = $request->parent_id;
+        $Component->description = $request->description;
+        $Component->save();
+
+        $CoreDataArr = $request->core_data;
+        $CoreDataArr['component_id'] = $Component->id;
+
+
+        // $CoreData = \App\CoreData::create($CoreDataArr);
+        $CoreData = \App\CoreData::updateOrCreate(
+            $CoreDataArr,
+            ['id' => $request->code_data_id, 'component_id' => $Component->id]
+        );
+
+        $MountingParameterArr = $request->mounting_parameters;
+        $MountingParameterArr['component_id'] = $Component->id;
+
+        // $MountingParameter = \App\MountingParameter::create($MountingParameterArr);
+        $MountingParameter = \App\MountingParameter::updateOrCreate(
+            $MountingParameterArr,
+            ['id' => $request->mounting_parameter_id, 'component_id' => $Component->id]
+        );
+        
+
+        $FurtherSpecificationArr = $request->further_specifications;
+        $FurtherSpecificationArr['component_id'] = $Component->id;
+
+        // $FurtherSpecification = \App\FurtherSpecification::create($FurtherSpecificationArr);
+        $FurtherSpecification = \App\FurtherSpecification::updateOrCreate(
+            $FurtherSpecificationArr,
+            ['id' => $request->further_specification_id, 'component_id' => $Component->id]
+        );
+
+
+        $CertificationArr = $request->certification;
+        $CertificationArr['component_id'] = $Component->id;
+
+        // $Certification = \App\Certification::create($CertificationArr);
+        $Certification = \App\Certification::updateOrCreate(
+            $CertificationArr,
+            ['id' => $request->certification_id, 'component_id' => $Component->id]
+        );
+
+        $DimensionArr = $request->dimension;
+        $DimensionArr['component_id'] = $Component->id;
+        $dimension_image_name = '';
+
+        if($request->hasfile('dimension_image'))
+        {
+            $image  = $request->file('dimension_image');
+            $dimension_image_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/dimension/', $dimension_image_name);  
+        }
+
+        if ($dimension_image_name) {
+            $DimensionArr['image'] = $dimension_image_name;
+        }
+
+        // $Dimension = \App\Dimention::create($DimensionArr);
+        $Dimension = \App\Dimention::updateOrCreate(
+            $DimensionArr,
+            ['id' => $request->dimention_id, 'component_id' => $Component->id]
+        );
+
+        if($request->hasfile('white_image_1'))
+        {
+            $image  = $request->file('white_image_1');
+            $white_image_1_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/component_image/', $white_image_1_name); 
+            $ComponentImage = ComponentImage::find($request->white_image_1_id);
+            $ComponentImage->image = $white_image_1_name;
+            $ComponentImage->component_id = $Component->id;
+            $ComponentImage->color = 'white';
+            $ComponentImage->save();
+        }
+
+        if($request->hasfile('white_image_2'))
+        {
+            $image  = $request->file('white_image_2');
+            $white_image_1_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/component_image/', $white_image_1_name); 
+            $ComponentImage = ComponentImage::find($request->white_image_2_id);
+            $ComponentImage->image = $white_image_1_name;
+            $ComponentImage->component_id = $Component->id;
+            $ComponentImage->color = 'white';
+            $ComponentImage->save();
+        }
+
+        if($request->hasfile('black_image_1'))
+        {
+            $image  = $request->file('black_image_1');
+            $white_image_1_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/component_image/', $white_image_1_name); 
+            $ComponentImage = ComponentImage::find($request->black_image_1_id);
+            $ComponentImage->image = $white_image_1_name;
+            $ComponentImage->component_id = $Component->id;
+            $ComponentImage->color = 'black';
+            $ComponentImage->save();
+        }
+
+        if($request->hasfile('black_image_2'))
+        {
+            $image  = $request->file('black_image_2');
+            $white_image_1_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/component_image/', $white_image_1_name);
+            $ComponentImage = ComponentImage::find($request->black_image_2_id);
+            $ComponentImage->image = $white_image_1_name;
+            $ComponentImage->component_id = $Component->id;
+            $ComponentImage->color = 'black';
+            $ComponentImage->save();
+        }
+
+        return back()->with('message', 'Saved successfully.');
     }
 
     /**

@@ -47,7 +47,7 @@ Route::delete('component/{id}', 'ComponentController@destroy')->name('component.
 
 Route::get('component/{subcategory}', 'ComponentController@index');
 Route::post('component', 'ComponentController@store');
-Route::put('component/{id}', 'ComponentController@update')->name('component.update');
+Route::post('component/update', 'ComponentController@update')->name('component.update');
 
 
 Route::post('contact', 'ContactController@store');

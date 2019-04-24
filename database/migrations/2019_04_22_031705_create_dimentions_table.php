@@ -25,6 +25,9 @@ class CreateDimentionsTable extends Migration
             $table->string('F')->nullable();
             $table->string('G')->nullable();
             $table->string('H')->nullable();
+            $table->string('I')->nullable();
+            $table->string('J')->nullable();
+            $table->string('K')->nullable();
             $table->string('wl')->nullable();
             $table->string('wr')->nullable();
             $table->string('old')->nullable();
