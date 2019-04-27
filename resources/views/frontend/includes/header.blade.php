@@ -16,14 +16,14 @@
                     <li class="search">
                         <i class="mobile icon grey close"><span class="papicon_lens"></span></i>
                         <div class="searchcontent">
-                            <form action="https://www.bafang-e.com/en/top-navigation/search.html" method="post" name="searchform" class="ym-searchform">
+                            {{-- <form action="https://www.bafang-e.com/en/top-navigation/search.html" method="post" name="searchform" class="ym-searchform">
                                 <input name="tx_indexedsearch[sword]" class="ym-searchfield" type="text" placeholder="Search" onblur="if(this.value=='')this.value='Search';" onfocus="if(this.value=='Search')this.value='';" />
                                 <input type="hidden" name="tx_indexedsearch[_sections]" value="0" />
                                 <input type="hidden" name="tx_indexedsearch[pointer]" value="0" />
                                 <input type="hidden" name="tx_indexedsearch[ext]" value="0" />
                                 <input type="hidden" name="tx_indexedsearch[lang]" value="0" />
                                 <span id="search_click" class="papicon_lens ym-searchbutton">&nbsp;</span>
-                            </form>
+                            </form> --}}
                         </div>
                     </li>
                 </ul>
@@ -110,7 +110,7 @@
                             </li>
 
                             <li class="">
-                                <a href="/component/accessoires">
+                                <a href="/component/accessories">
                                     <i class="lightgrey icon">
 								<span class="papicon_accessories"></span>
 								</i>

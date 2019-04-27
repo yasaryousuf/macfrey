@@ -66,7 +66,7 @@ class ServiceController extends Controller
      */
     public function show($slug)
     {
-        $service = Service::where('slug', $slug)->first();
+        $service = Service::where('slug', $slug)->firstOrFail();
         return view('frontend.service.single', compact('service'));
     }
 

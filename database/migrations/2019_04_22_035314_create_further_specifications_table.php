@@ -19,6 +19,22 @@ class CreateFurtherSpecificationsTable extends Migration
             $table->string('speed_detection_signal')->nullable();
             $table->string('reduction_ratio')->nullable();
             $table->string('magnet_poles')->nullable();
+
+            $table->string('bluetooth')->nullable();
+            $table->string('usb_charge')->nullable();
+            $table->string('usb_communication')->nullable();
+            $table->string('number_of_cells')->nullable();
+            $table->string('lighting_output_voltage')->nullable();
+            $table->string('walk_assistance')->nullable();
+            $table->string('speed_limit')->nullable();
+            $table->string('gearshift')->nullable();
+            $table->string('charging_time')->nullable();
+            $table->string('charging_cycles')->nullable();
+            $table->string('throttle_voltage_input')->nullable();
+            $table->string('pas_mode')->nullable();
+            $table->string('pin_surface_treatment')->nullable();
+            $table->string('minimum_distance')->nullable();
+            $table->string('maximum_distance')->nullable();
             $table->timestamps();
         });
     }

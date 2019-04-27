@@ -18,14 +18,15 @@ class ComponentController extends Controller
      */
     public function index($category)
     {
+        $parentCategory = $category;
         $components = [];
-        $ComponentCategory = ComponentCategory::where('slug', $category)->first();
+        $ComponentCategory = ComponentCategory::where('slug', $category)->firstOrFail();
         $categoryChildren = $ComponentCategory->children;
         foreach ($categoryChildren as $category ) {
             $components[$category->name] = Component::where('component_category_id', $category->id)->get();
         }
        
-        return view('frontend.component.index', compact('components'));
+        return view('frontend.component.index', compact('components', 'parentCategory'));
     }
     public function adminIndex()
     {
@@ -109,6 +110,25 @@ class ComponentController extends Controller
 
         $Dimension = \App\Dimention::create($DimensionArr);
 
+        // pin
+        $PinArr = $request->pin;
+        $PinArr['component_id'] = $Component->id;
+        $pin_image_name = '';
+
+        if($request->hasfile('pin_image'))
+        {
+            $image  = $request->file('pin_image');
+            $pin_image_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/pin/', $pin_image_name);  
+        }
+
+        if ($pin_image_name) {
+            $PinArr['image'] = $pin_image_name;
+        }
+
+        $Dimension = \App\Pin::create($PinArr);
+        // pin ends
+
         if($request->hasfile('white_image_1'))
         {
             $image  = $request->file('white_image_1');
@@ -174,9 +194,11 @@ class ComponentController extends Controller
      * @param  \App\Component  $component
      * @return \Illuminate\Http\Response
      */
-    public function show(Component $component)
+    public function show($subcategory, $component)
     {
-        //
+        $ComponentCategory = ComponentCategory::where('slug', $subcategory)->first();
+        $component =  Component::where('slug', $component)->firstOrFail();
+        return view('frontend.component.single', compact('ComponentCategory', 'component'));
     }
 
     /**
@@ -277,6 +299,29 @@ class ComponentController extends Controller
             $DimensionArr,
             ['id' => $request->dimention_id, 'component_id' => $Component->id]
         );
+
+        // pin
+        $PinArr = $request->pin;
+        $PinArr['component_id'] = $Component->id;
+        $pin_image_name = '';
+
+        if($request->hasfile('pin_image'))
+        {
+            $image  = $request->file('pin_image');
+            $pin_image_name   = time().'_'.$image->getClientOriginalName();
+            $image->move(public_path().'/images/pin/', $pin_image_name);  
+        }
+
+        if ($pin_image_name) {
+            $PinArr['image'] = $pin_image_name;
+        }
+
+        // $Dimension = \App\Pin::create($PinArr);
+        $Dimension = \App\Pin::updateOrCreate(
+            $PinArr,
+            ['id' => $request->pin_id, 'component_id' => $Component->id]
+        );
+        // pin ends        
 
         if($request->hasfile('white_image_1'))
         {

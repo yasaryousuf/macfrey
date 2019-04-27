@@ -25,6 +25,46 @@
             </a>
           </li>
 
+          {{-- Drive System Category --}}
+          <li class="nav-item {{Request::is('admin/drive_system_category*') ? ' active' : ''}}">
+            <a class="nav-link" data-toggle="collapse" href="#admin-drive_system_category-menu" aria-expanded="false" aria-controls="admin-drive_system_category-menu">
+              <i class="menu-icon mdi mdi-message-settings-variant"></i>
+              <span class="menu-title">Drive Sys. Category</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse {{Request::is('admin/drive_system_category*') ? ' show' : ''}}" id="admin-drive_system_category-menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                <a class="nav-link {{Request::is('admin/drive_system_category/create') ? ' active' : ''}}" href="/admin/drive_system_category/create">Add Drive Sys. Category</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{Request::is('admin/drive_system_category') ? ' active' : ''}}" href="/admin/drive_system_category/">All Drive Sys. Category</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {{-- Drive System Category Ends --}}    
+
+          {{-- Component --}}
+          <li class="nav-item {{Request::is('admin/drive_system/create') ? ' active' : ''}}{{Request::is('admin/drive_system') ? ' active' : ''}}">
+            <a class="nav-link" data-toggle="collapse" href="#admin-drive_system-menu" aria-expanded="false" aria-controls="admin-drive_system-menu">
+              <i class="menu-icon mdi mdi-message-settings-variant"></i>
+              <span class="menu-title">Drive System</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse {{Request::is('admin/drive_system/create') ? ' show' : ''}}{{Request::is('admin/drive_system') ? ' active' : ''}}" id="admin-drive_system-menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                <a class="nav-link {{Request::is('admin/drive_system/create') ? ' active' : ''}}" href="/admin/drive_system/create">Add Drive System</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{Request::is('admin/drive_system') ? ' active' : ''}}" href="/admin/drive_system/">All Drive System</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          {{-- Component Ends --}}  
+
           {{-- Component Category --}}
           <li class="nav-item {{Request::is('admin/component_category*') ? ' active' : ''}}">
             <a class="nav-link" data-toggle="collapse" href="#admin-component_category-menu" aria-expanded="false" aria-controls="admin-component_category-menu">

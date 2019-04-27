@@ -29,6 +29,29 @@ class CreateCoreDataTable extends Migration
             $table->string('weight')->nullable();
             $table->string('noise_grade')->nullable();
             $table->string('operating_temperature')->nullable();
+            $table->string('suitability')->nullable();
+
+            $table->string('com_protocol')->nullable();
+            $table->string('display_type')->nullable();
+            $table->string('display')->nullable();
+            $table->string('support_modes')->nullable();
+            $table->string('nominal_capacity')->nullable();
+            $table->string('resolution')->nullable();
+            $table->string('input_voltage')->nullable();
+            $table->string('output_voltage')->nullable();
+            $table->string('type')->nullable();
+            $table->string('signals')->nullable();
+            $table->string('current_limit')->nullable();
+            $table->string('low_voltage_protection')->nullable();
+            $table->string('wire_specification')->nullable();
+            $table->string('teeth_number')->nullable();
+            $table->string('chain_line')->nullable();
+            $table->string('thickness')->nullable();
+            $table->string('chain_wheel_material')->nullable();
+            $table->string('frame_materail')->nullable();
+            $table->string('cover_material')->nullable();
+            $table->string('energy_content')->nullable();
+
             $table->timestamps();
         });
     }

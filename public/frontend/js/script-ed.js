@@ -2112,10 +2112,10 @@ jQuery(document).ready(function ($) {
     }
 
 
-    $("footer").after("<div id='cookie-hinweis-container'><span>" + message + "</span><div class='cookiebtns'><a id='cookieagree'>" + ok + "</a><a id='cookienoagree'>" + nook + "</a><a href='" + link + "'>" + policyText + "</a></div></span></div>");
+    // $("footer").after("<div id='cookie-hinweis-container'><span>" + message + "</span><div class='cookiebtns'><a id='cookieagree'>" + ok + "</a><a id='cookienoagree'>" + nook + "</a><a href='" + link + "'>" + policyText + "</a></div></span></div>");
 
     var cookieheight = $("#cookie-hinweis-container").outerHeight();
-    $("footer").css("margin-bottom", cookieheight + "px")
+    // $("footer").css("margin-bottom", cookieheight + "px")
 
 
 

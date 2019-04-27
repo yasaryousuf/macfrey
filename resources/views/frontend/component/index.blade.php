@@ -143,7 +143,7 @@
 <!--TOPSLIDER_begin-->
             @foreach ($components as $componentcategory => $component)
     {{-- {!! '<pre>' !!}
-        {{print_r($item)}} --}}
+        {{print_r($components)}} --}}
                 <div class="list listprod">
                     <div class="header">
 
@@ -157,7 +157,7 @@
                     @foreach ($component as $item)
                         <div class="product equalheights">
 
-                            <a href="component/motor/fm-g320250r.html">
+                            <a href="{{$parentCategory}}/{{$item->slug}}">
 
                                 <div class="productimage">
                                     @if (!empty($item->is_top))

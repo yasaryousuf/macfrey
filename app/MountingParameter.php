@@ -15,5 +15,16 @@ class MountingParameter extends Model
         'cable_length',
         'gearshift',
         'spoke_specification',
+
+        'tire_specification',
+        'induction_distance',
+        'mounting_position',
+        'connector_size',
+        'dimensions',
+        'com_protocol',
+        'e_brake_level',
+        'bb_width',
+        'holder',
+
     ];
 }

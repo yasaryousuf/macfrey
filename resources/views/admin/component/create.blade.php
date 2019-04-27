@@ -10,8 +10,7 @@
                 <p class="card-description">
                     Add component
                 </p>
-                <form action="{{route('component.update', ['id' => $Component->id])}}" method="POST" name="create-news" enctype="multipart/form-data">
-                    @method('PUT')
+                <form action="/component" method="POST" name="create-news" enctype="multipart/form-data">
                     @csrf
                     <h4 style="margin-top:45px">Basic Information</h4> <hr>
                     <div class="form-group">
@@ -88,9 +87,106 @@
                         <label for="exampleInputName1">Operating Temperature</label>
                         <input type="text" class="form-control" placeholder="operating_temperature" name="core_data[operating_temperature]">
                     </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Suitability</label>
+                        <input type="text" class="form-control" placeholder="suitability" name="core_data[suitability]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Com. Protocol</label>
+                        <input type="text" class="form-control" placeholder="com_protocol" name="core_data[com_protocol]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Display Type</label>
+                        <input type="text" class="form-control" placeholder="display_type" name="core_data[display_type]">
+                    </div>  
+                    <div class="form-group">
+                        <label for="exampleInputName1">Display</label>
+                        <input type="text" class="form-control" placeholder="display" name="core_data[display]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Support Modes</label>
+                        <input type="text" class="form-control" placeholder="support_modes" name="core_data[support_modes]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Nominal Capacity</label>
+                        <input type="text" class="form-control" placeholder="nominal_capacity" name="core_data[nominal_capacity]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Resolution</label>
+                        <input type="text" class="form-control" placeholder="resolution" name="core_data[resolution]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Input Voltage</label>
+                        <input type="text" class="form-control" placeholder="input_voltage" name="core_data[input_voltage]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Output Voltage</label>
+                        <input type="text" class="form-control" placeholder="output_voltage" name="core_data[output_voltage]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Type</label>
+                        <input type="text" class="form-control" placeholder="type" name="core_data[type]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Signals</label>
+                        <input type="text" class="form-control" placeholder="signals" name="core_data[signals]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Current Limit</label>
+                        <input type="text" class="form-control" placeholder="current_limit" name="core_data[current_limit]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Low Voltage Protection</label>
+                        <input type="text" class="form-control" placeholder="low_voltage_protection" name="core_data[low_voltage_protection]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Wire Specification</label>
+                        <input type="text" class="form-control" placeholder="wire_specification" name="core_data[wire_specification]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Teeth Number</label>
+                        <input type="text" class="form-control" placeholder="teeth_number" name="core_data[teeth_number]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Chain Line</label>
+                        <input type="text" class="form-control" placeholder="chain_line" name="core_data[chain_line]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Thickness</label>
+                        <input type="text" class="form-control" placeholder="thickness" name="core_data[thickness]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Chain Wheel Material</label>
+                        <input type="text" class="form-control" placeholder="chain_wheel_material" name="core_data[chain_wheel_material]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Frame Materail</label>
+                        <input type="text" class="form-control" placeholder="frame_materail" name="core_data[frame_materail]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Cover Material</label>
+                        <input type="text" class="form-control" placeholder="cover_material" name="core_data[cover_material]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Energy Content</label>
+                        <input type="text" class="form-control" placeholder="energy_content" name="core_data[energy_content]">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="exampleInputName1">E-Brake</label>
+                        <input type="text" class="form-control" placeholder="e_brake" name="core_data[e_brake]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Gearsensor Function</label>
+                        <input type="text" class="form-control" placeholder="gearsensor_function" name="core_data[gearsensor_function]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Light Drive Capacity</label>
+                        <input type="text" class="form-control" placeholder="light_drive_capacity" name="core_data[light_drive_capacity]">
+                    </div>
 
 
-
+                    {{-- Mounting Parameters --}}
                     <h4 style="margin-top:45px">Mounting Parameters</h4> <hr>
                     <div class="form-group">
                         <label for="exampleInputName1">Brake</label>
@@ -116,7 +212,44 @@
                         <label for="exampleInputName1">Spoke Specification</label>
                         <input type="text" class="form-control" placeholder="spoke_specification" name="mounting_parameters[spoke_specification]">
                     </div> 
-
+                    
+                    <div class="form-group">
+                        <label for="exampleInputName1">Tire Specification</label>
+                        <input type="text" class="form-control" placeholder="tire_specification" name="mounting_parameters[tire_specification]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Induction Distance</label>
+                        <input type="text" class="form-control" placeholder="induction_distance" name="mounting_parameters[induction_distance]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Mounting Position</label>
+                        <input type="text" class="form-control" placeholder="mounting_position" name="mounting_parameters[mounting_position]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Connector Size</label>
+                        <input type="text" class="form-control" placeholder="connector_size" name="mounting_parameters[connector_size]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Dimensions</label>
+                        <input type="text" class="form-control" placeholder="dimensions" name="mounting_parameters[dimensions]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Com. Protocol</label>
+                        <input type="text" class="form-control" placeholder="com_protocol" name="mounting_parameters[com_protocol]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">E-Brake Level</label>
+                        <input type="text" class="form-control" placeholder="e_brake_level" name="mounting_parameters[e_brake_level]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">BB Width</label>
+                        <input type="text" class="form-control" placeholder="bb_width" name="mounting_parameters[bb_width]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Holder</label>
+                        <input type="text" class="form-control" placeholder="holder" name="mounting_parameters[holder]">
+                    </div> 
+                    {{-- Mounting Parameters --}}
 
 
                     <h4 style="margin-top:45px">Further Specifications</h4> <hr>
@@ -133,6 +266,69 @@
                         <input type="text" class="form-control" placeholder="magnet_poles" name="further_specifications[magnet_poles]">
                     </div> 
 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Bluetooth</label>
+                        <input type="text" class="form-control" placeholder="bluetooth" name="further_specifications[bluetooth]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">USB Charge</label>
+                        <input type="text" class="form-control" placeholder="usb_charge" name="further_specifications[usb_charge]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">USB Communication</label>
+                        <input type="text" class="form-control" placeholder="usb_communication" name="further_specifications[usb_communication]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Number of Cells</label>
+                        <input type="text" class="form-control" placeholder="number_of_cells" name="further_specifications[number_of_cells]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Lighting Output Voltage</label>
+                        <input type="text" class="form-control" placeholder="lighting_output_voltage" name="further_specifications[lighting_output_voltage]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Walk Assistance</label>
+                        <input type="text" class="form-control" placeholder="walk_assistance" name="further_specifications[walk_assistance]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Speed Limit</label>
+                        <input type="text" class="form-control" placeholder="speed_limit" name="further_specifications[speed_limit]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Gearshift</label>
+                        <input type="text" class="form-control" placeholder="gearshift" name="further_specifications[gearshift]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Charging Time</label>
+                        <input type="text" class="form-control" placeholder="charging_time" name="further_specifications[charging_time]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Charging Cycles</label>
+                        <input type="text" class="form-control" placeholder="charging_cycles" name="further_specifications[charging_cycles]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Throttle Voltage Input</label>
+                        <input type="text" class="form-control" placeholder="throttle_voltage_input" name="further_specifications[throttle_voltage_input]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">PAS mode</label>
+                        <input type="text" class="form-control" placeholder="pas_mode" name="further_specifications[pas_mode]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Pin Surface Treatment</label>
+                        <input type="text" class="form-control" placeholder="pin_surface_treatment" name="further_specifications[pin_surface_treatment]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Minimum Distance</label>
+                        <input type="text" class="form-control" placeholder="minimum_distance" name="further_specifications[minimum_distance]">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Maximum Distance</label>
+                        <input type="text" class="form-control" placeholder="maximum_distance" name="further_specifications[maximum_distance]">
+                    </div>
+
+
+                    {{-- Tests & Certifications --}}
                     <h4 style="margin-top:45px">Tests & Certifications</h4> <hr>
                     <div class="form-group">
                         <label for="exampleInputName1">IP</label>
@@ -145,8 +341,8 @@
                     <div class="form-group">
                         <label for="exampleInputName1">Salt Spray Test Standard(h)</label>
                         <input type="text" class="form-control" placeholder="salt_spray_test_standard" name="certification[salt_spray_test_standard]">
-                    </div> 
-
+                    </div>
+                    {{-- !Tests & Certifications --}}
 
                     <h4 style="margin-top:45px">Dimensions</h4> <hr>
                     <img id="dimention-image-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{asset('/images/No_Image.svg')}}"/>
@@ -202,6 +398,29 @@
                         <label for="exampleInputName1">Dimension OLD</label>
                         <input type="text" class="form-control" placeholder="dimension OLD" name="dimension[old]">
                     </div> 
+                    {{-- Dimension --}}
+
+
+                    {{-- Pin --}}
+                    <h4 style="margin-top:45px">Pin</h4> <hr>
+                    <img id="pin-image-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{asset('/images/No_Image.svg')}}"/>
+                    <div class="form-group">
+
+                        <label for="customFile">Pin Image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="pin_image" onchange="document.getElementById('pin-image-preview').src = window.URL.createObjectURL(this.files[0])">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Pin A</label>
+                        <input type="text" class="form-control" placeholder="pin A" name="pin[A]">
+                    </div> 
+                    <div class="form-group">
+                        <label for="exampleInputName1">Pin B</label>
+                        <input type="text" class="form-control" placeholder="pin B" name="pin[B]">
+                    </div>                     
+                    {{-- Pin ends --}}
 
                     <h4 style="margin-top:45px">Component Images</h4> <hr>
                     <img id="white-image-1-preview" alt="your image"  height="200" style="margin-bottom:20px" src="{{asset('/images/No_Image.svg')}}"/>

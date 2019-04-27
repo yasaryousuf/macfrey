@@ -66,7 +66,7 @@ class CompanyController extends Controller
      */
     public function show($slug)
     {
-        $company = Company::where('slug', $slug)->first();
+        $company = Company::where('slug', $slug)->firstOrFail();
         return view('frontend.company.single', compact('company'));
     }
 

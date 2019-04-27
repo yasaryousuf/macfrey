@@ -30,6 +30,11 @@ class Component extends Model
         return $this->hasOne('App\Dimention');
     }
 
+    public function pin()
+    {
+        return $this->hasOne('App\Pin');
+    }
+
     public function further_specification()
     {
         return $this->hasOne('App\FurtherSpecification');
@@ -39,5 +44,11 @@ class Component extends Model
     {
         return $this->hasOne('App\MountingParameter');
     }
+
+    public function drive_systems()
+    {
+        return $this->belongsToMany('App\DriveSystem');
+    }
+
 }
 

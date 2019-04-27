@@ -23,6 +23,17 @@ class CreateMountingParametersTable extends Migration
             $table->string('cable_length')->nullable();
             $table->string('gearshift')->nullable();
             $table->string('spoke_specification')->nullable();
+
+            $table->string('tire_specification')->nullable();
+            $table->string('induction_distance')->nullable();
+            $table->string('mounting_position')->nullable();
+            $table->string('connector_size')->nullable();
+            $table->string('dimensions')->nullable();
+            $table->string('com_protocol')->nullable();
+            $table->string('e_brake_level')->nullable();
+            $table->string('bb_width')->nullable();
+            $table->string('holder')->nullable();
+
             $table->timestamps();
         });
     }

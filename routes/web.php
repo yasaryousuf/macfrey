@@ -46,8 +46,17 @@ Route::delete('component_category/{id}', 'ComponentCategoryController@destroy')-
 Route::delete('component/{id}', 'ComponentController@destroy')->name('component.destroy');
 
 Route::get('component/{subcategory}', 'ComponentController@index');
+Route::get('component/{subcategory}/{component}', 'ComponentController@show');
 Route::post('component', 'ComponentController@store');
 Route::post('component/update', 'ComponentController@update')->name('component.update');
+
+Route::post('drive_system_category', 'DriveSystemCategoryController@store');
+Route::put('drive_system_category/{id}', 'DriveSystemCategoryController@update')->name('drive_system_category.update');
+Route::delete('drive_system_category/{id}', 'DriveSystemCategoryController@destroy')->name('drive_system_category.destroy');
+
+Route::post('drive_system', 'DriveSystemController@store');
+Route::put('drive_system/{id}', 'DriveSystemController@update')->name('drive_system.update');
+Route::delete('drive_system/{id}', 'DriveSystemController@destroy')->name('drive_system.destroy');
 
 
 Route::post('contact', 'ContactController@store');
@@ -83,5 +92,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/component', 'ComponentController@adminIndex');
     Route::get('admin/component/create', 'ComponentController@create');
     Route::get('admin/component/{id}/edit', 'ComponentController@edit');
+
+    Route::get('admin/drive_system_category', 'DriveSystemCategoryController@adminIndex');
+    Route::get('admin/drive_system_category/create', 'DriveSystemCategoryController@create');
+    Route::get('admin/drive_system_category/{id}/edit', 'DriveSystemCategoryController@edit');
+
+    Route::get('admin/drive_system', 'DriveSystemController@adminIndex');
+    Route::get('admin/drive_system/create', 'DriveSystemController@create');
+    Route::get('admin/drive_system/{id}/edit', 'DriveSystemController@edit');
 
 });
