@@ -16,4 +16,9 @@ class ComponentCategory extends Model
     {
         return $this->hasMany('App\ComponentCategory', 'parent_id');
     }
+
+    public function components()
+    {
+        return $this->hasMany('App\Component', 'component_category_id');
+    }
 }

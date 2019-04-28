@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ComponentCategory;
 use App\DriveSystem;
 use App\DriveSystemCategory;
 use Illuminate\Http\Request;
@@ -31,6 +32,14 @@ class DriveSystemController extends Controller
      */
     public function create()
     {
+        $componentParentCategories = ComponentCategory::whereNull('parent_id')->get();
+        foreach ($componentParentCategories as $componentParentCategory) {
+            foreach ($componentParentCategory->children as $category ) {
+                echo '<pre>';
+                print_r($category->components);
+            }
+        }
+        return;
         $DriveSystemCategories = DriveSystemCategory::all();
         return view('admin.drive_system.create', compact('DriveSystemCategories'));
     }

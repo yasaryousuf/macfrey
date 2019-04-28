@@ -51,6 +51,9 @@ class CreateCoreDataTable extends Migration
             $table->string('frame_materail')->nullable();
             $table->string('cover_material')->nullable();
             $table->string('energy_content')->nullable();
+            $table->string('e_brake')->nullable();
+            $table->string('gearsensor_function')->nullable();
+            $table->string('light_drive_capacity')->nullable();
 
             $table->timestamps();
         });

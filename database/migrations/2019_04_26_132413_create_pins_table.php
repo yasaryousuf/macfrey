@@ -16,9 +16,9 @@ class CreatePinsTable extends Migration
         Schema::create('pins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('component_id');
-            $table->string('image');
-            $table->string('A');
-            $table->string('B');
+            $table->string('image')->nullable();
+            $table->string('A')->nullable();
+            $table->string('B')->nullable();
             $table->timestamps();
         });
     }
