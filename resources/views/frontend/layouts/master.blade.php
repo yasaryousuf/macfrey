@@ -98,6 +98,7 @@
     <script src="{{asset('frontend/js/script-ed.js')}}"></script>
     {{-- <script src="{{asset('frontend/js/slider.js')}}"></script> --}}
     {{-- <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> --}}
+    @yield('script')
 
 </body>
 

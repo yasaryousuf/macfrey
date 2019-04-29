@@ -13,6 +13,31 @@
                 <form action="{{url('drive_system')}}" method="POST" name="create-drive-system" enctype="multipart/form-data">
                     @csrf
 
+                    <?php
+                        $componentParentCategories = \App\ComponentCategory::whereNull('parent_id')->get();
+                        foreach ($componentParentCategories as $componentParentCategory) :  
+                            // echo '<pre>';
+                            // print_r($componentParentCategory->toArray());
+                            // echo '</pre>';
+                        ?>
+
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect2">{{$componentParentCategory->name}}:</label>
+                            <select class="form-control" id="exampleFormControlSelect2" name="component[]" required multiple>
+                                <option value="" selected disabled>Choose your option</option>
+                                <?php
+                                    foreach ($componentParentCategory->children as $category ) :
+                                    
+                                    ?>
+                                        @foreach ($category->components as $component)
+                                            <option value="{{$component->id}}">{{$component->name}}</option>
+                                        @endforeach                                  
+                                <?php endforeach; ?>
+
+                            </select>
+                        </div>
+                    <?php endforeach; ?>
                     <div class="form-group">
                         <label for="exampleFormControlSelect2">Parent Category:</label>
                         <select class="form-control" id="exampleFormControlSelect2" name="drive_system_category_id" required>

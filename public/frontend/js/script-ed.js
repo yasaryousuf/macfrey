@@ -2316,7 +2316,7 @@ function menu() {
             active: false,
             collapsible: true,
             navigation: true,
-            icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
+            // icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
         });
 
         $('.productdetailspecs').accordion({
@@ -2328,7 +2328,7 @@ function menu() {
             active: false,
             collapsible: true,
             navigation: true,
-            icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
+            // icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
         });
 
         $('footer').find('.footer-left').find('li:first-child').hide();
@@ -2366,7 +2366,7 @@ function menu() {
                             active: false,
                             collapsible: true,
                             navigation: true,
-                            icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
+                            // icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
 
                         });
 
@@ -2482,7 +2482,7 @@ function accrdions() {
         active: false,
         collapsible: true,
         navigation: true,
-        icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
+        // icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
     });
     $('.accordion').accordion({
         header: 'h3',
@@ -2493,7 +2493,7 @@ function accrdions() {
         active: false,
         collapsible: true,
         navigation: true,
-        icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
+        // icons: { "header": "papicon_plus", "activeHeader": "papicon_minus" },
     });
 }
 

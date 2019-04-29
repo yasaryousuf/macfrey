@@ -183,20 +183,27 @@
                                     <table>
                                         <tbody>
 
-                                            <tr>
-                                                <td class="propertytitle">Construction</td>
-                                                <td class="propertydescription"><strong>{{$item->core_data->construction}}</strong></td>
-                                            </tr>
+                                            @if ($item->core_data)
+                                                <tr>
+                                                    <td class="propertytitle">Construction</td>
+                                                    <td class="propertydescription"><strong>{{$item->core_data->construction}}</strong></td>
+                                                </tr>
+                                            @endif
 
-                                            <tr>
-                                                <td class="propertytitle">Rated Power (W)</td>
-                                                <td class="propertydescription"><strong>{{$item->core_data->rated_power}}</strong></td>
-                                            </tr>
+                                            @if ($item->core_data)
+                                                <tr>
+                                                    <td class="propertytitle">Rated Power (W)</td>
+                                                    <td class="propertydescription"><strong>{{$item->core_data->rated_power}}</strong></td>
+                                                </tr>
+                                            @endif
 
-                                            <tr>
-                                                <td class="propertytitle">Installation Widths (mm / OLD)</td>
-                                                <td class="propertydescription"><strong>{{$item->mounting_parameter->installation_widths}}</strong></td>
-                                            </tr>
+
+                                            @if ($item->mounting_parameter)
+                                                <tr>
+                                                    <td class="propertytitle">Installation Widths (mm / OLD)</td>
+                                                    <td class="propertydescription"><strong>{{$item->mounting_parameter->installation_widths}}</strong></td>
+                                                </tr>
+                                            @endif
 
                                         </tbody>
                                     </table>

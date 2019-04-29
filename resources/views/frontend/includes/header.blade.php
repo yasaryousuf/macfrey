@@ -3,8 +3,8 @@
         <div class="top-left">
             <div class="logo">
                 <!--LOGO_begin-->
-                <a href="../../en.html" title="Bafang" class="logo">
-                    <img class="svg" src="../../fileadmin/templates/img/logo/logo.svg" id="logo" alt="Bafang - Logo">
+                <a href="/" title="Bafang" class="logo">
+                    <img class="svg" src="/fileadmin/templates/img/logo/logo.svg" id="logo" alt="Bafang - Logo">
                 </a>
                 <!--LOGO_end-->
             </div>
@@ -36,7 +36,7 @@
                 <!--HNAV_begin-->
                 <ul>
                     <li class="">
-                        <a href="../drive-systems.html">Drive systems</a>
+                        <a href="/drive_system">Drive systems</a>
 
                     </li>
                     <li class="">

@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Component extends Model
 {
+
+    public static function boldName($name)
+    {
+        $first_word = explode(' ',trim($name))[0];
+        $new_str =  str_replace($first_word,"",$name);
+        $new_str = '<span class="producttitle-bold">'.$first_word.'</span>' . $new_str;
+        return $new_str;
+    }
+
     public function category()
     {
         return $this->belongsTo('App\ComponentCategory', 'component_category_id');

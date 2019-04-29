@@ -17,8 +17,10 @@ class DriveSystemController extends Controller
      */
     public function index()
     {
-        //
+        $DriveSystemCategories = DriveSystemCategory::all();
+        return view('frontend.drive_system.index', compact('DriveSystemCategories'));
     }
+
     public function adminIndex()
     {
         $DriveSystems = DriveSystem::all();
@@ -32,14 +34,6 @@ class DriveSystemController extends Controller
      */
     public function create()
     {
-        $componentParentCategories = ComponentCategory::whereNull('parent_id')->get();
-        foreach ($componentParentCategories as $componentParentCategory) {
-            foreach ($componentParentCategory->children as $category ) {
-                echo '<pre>';
-                print_r($category->components);
-            }
-        }
-        return;
         $DriveSystemCategories = DriveSystemCategory::all();
         return view('admin.drive_system.create', compact('DriveSystemCategories'));
     }
@@ -90,6 +84,10 @@ class DriveSystemController extends Controller
 
         $DriveSystem->save();
 
+        if (!empty($request->component)) {
+            $DriveSystem->components()->sync($request->component);
+        }
+
         return back()->with('message', 'Saved successfully.');
     }
 
@@ -99,9 +97,11 @@ class DriveSystemController extends Controller
      * @param  \App\DriveSystem  $driveSystem
      * @return \Illuminate\Http\Response
      */
-    public function show(DriveSystem $driveSystem)
+    public function show($category, $slug)
     {
-        //
+        $DriveSystemCategory = DriveSystemCategory::where('slug', $category)->firstOrFail();
+        $DriveSystem = DriveSystem::where('slug', $slug)->firstOrFail();
+        return view('frontend.drive_system.single', compact('DriveSystem', 'DriveSystemCategory')); 
     }
 
     /**
@@ -163,6 +163,10 @@ class DriveSystemController extends Controller
 
 
         $DriveSystem->save();
+
+        if (!empty($request->component)) {
+            $DriveSystem->components()->sync($request->component);
+        }
 
         return back()->with('message', 'Saved successfully.');
     }

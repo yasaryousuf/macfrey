@@ -11,13 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@homepage');
 
 
 Route::get('/test', 'HomeController@test');
@@ -54,6 +51,8 @@ Route::post('drive_system_category', 'DriveSystemCategoryController@store');
 Route::put('drive_system_category/{id}', 'DriveSystemCategoryController@update')->name('drive_system_category.update');
 Route::delete('drive_system_category/{id}', 'DriveSystemCategoryController@destroy')->name('drive_system_category.destroy');
 
+Route::get('drive_system', 'DriveSystemController@index');
+Route::get('drive_system/{category}/{slug}', 'DriveSystemController@show');
 Route::post('drive_system', 'DriveSystemController@store');
 Route::put('drive_system/{id}', 'DriveSystemController@update')->name('drive_system.update');
 Route::delete('drive_system/{id}', 'DriveSystemController@destroy')->name('drive_system.destroy');

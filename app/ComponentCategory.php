@@ -2,10 +2,22 @@
 
 namespace App;
 
+use App\ComponentCategoryImage;
 use Illuminate\Database\Eloquent\Model;
 
 class ComponentCategory extends Model
 {
+    public static function getCategoryImage($slug)
+    {
+        $ComponentCategoryImage = ComponentCategoryImage::where('name', $slug)->first();
+        return $ComponentCategoryImage->image_path;
+    }
+
+    public static function getCategorycontext($slug)
+    {
+        $ComponentCategoryImage = ComponentCategoryImage::where('name', $slug)->first();
+        return $ComponentCategoryImage->context;
+    }
 
     public function parent()
     {
