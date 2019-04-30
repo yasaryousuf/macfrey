@@ -33,6 +33,7 @@ class HomeController extends Controller
 
     public function homepage()
     {
-        return view('frontend.homepage');
+        $sliders = \App\Slider::all();
+        return view('frontend.homepage', compact('sliders'));
     }
 }

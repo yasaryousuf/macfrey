@@ -18,8 +18,13 @@ class ContactController extends Controller
     }
     public function adminIndex()
     {
-        $contacts = Contact::all();
+        $contacts = Contact::whereNull('item')->get();
         return view('admin.contact.index', compact('contacts'));
+    }
+    public function enquiry()
+    {
+        $contacts = Contact::whereNotNull('item')->get();
+        return view('admin.contact.enquiry', compact('contacts'));
     }
 
     /**

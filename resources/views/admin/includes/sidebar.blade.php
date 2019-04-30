@@ -177,11 +177,36 @@
               </ul>
             </div>
           </li>
+
+          <li class="nav-item {{Request::is('admin/slider*') ? ' active' : ''}}">
+            <a class="nav-link" data-toggle="collapse" href="#admin-slider-menu" aria-expanded="false" aria-controls="admin-slider-menu">
+              <i class="menu-icon mdi mdi-home"></i>
+              <span class="menu-title">Slider</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse {{Request::is('admin/slider*') ? ' show' : ''}}" id="admin-slider-menu">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                <a class="nav-link {{Request::is('admin/slider/create') ? ' active' : ''}}" href="/admin/slider/create">Add Slider</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{Request::is('admin/slider') ? ' active' : ''}}" href="/admin/slider/">All Slider</a>
+                </li>
+              </ul>
+            </div>
+          </li>
           
           <li class="nav-item {{Request::is('admin/contact') ? ' active' : ''}}">
             <a class="nav-link" href="/admin/contact">
               <i class="menu-icon mdi mdi-contact-mail"></i>
               <span class="menu-title">Contact </span>
+            </a>
+          </li>
+          
+          <li class="nav-item {{Request::is('admin/enquiry') ? ' active' : ''}}">
+            <a class="nav-link" href="/admin/enquiry">
+              <i class="menu-icon mdi mdi-contact-mail"></i>
+              <span class="menu-title">Enquiry </span>
             </a>
           </li>
 

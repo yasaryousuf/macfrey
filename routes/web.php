@@ -60,6 +60,10 @@ Route::delete('drive_system/{id}', 'DriveSystemController@destroy')->name('drive
 
 Route::post('contact', 'ContactController@store');
 
+Route::put('slider/{id}', 'SliderController@update')->name('slider.update');
+Route::post('slider', 'SliderController@store');
+Route::delete('slider/{id}', 'SliderController@destroy')->name('slider.destroy');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::post('/admin/profile', 'AdminController@saveProfile');
@@ -83,6 +87,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/company/{id}/edit', 'CompanyController@edit');
 
     Route::get('admin/contact', 'ContactController@adminIndex');
+    Route::get('admin/enquiry', 'ContactController@enquiry');
 
     Route::get('admin/component_category', 'ComponentCategoryController@adminIndex');
     Route::get('admin/component_category/create', 'ComponentCategoryController@create');
@@ -99,5 +104,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/drive_system', 'DriveSystemController@adminIndex');
     Route::get('admin/drive_system/create', 'DriveSystemController@create');
     Route::get('admin/drive_system/{id}/edit', 'DriveSystemController@edit');
+
+    Route::get('admin/slider', 'SliderController@adminIndex');
+    Route::get('admin/slider/create', 'SliderController@create');
+    Route::get('admin/slider/{id}/edit', 'SliderController@edit');
 
 });

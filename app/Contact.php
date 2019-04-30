@@ -19,6 +19,7 @@ class Contact extends Model
         'city',
         'country',
         'comment',
-        'type'
+        'type',
+        'item'
      ];
 }

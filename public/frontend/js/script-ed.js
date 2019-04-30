@@ -2102,14 +2102,14 @@ jQuery(document).ready(function ($) {
     ok = "Akzeptieren";
     nook = "Ablehnen"
 
-    if ($("html").attr("lang") == "en" || $("html").attr("lang") == "zh" || $("html").attr("lang") == "jp") {
-        message = "This website uses cookies to ensure you get the best experience on our website.";
-        acceptText = "Accept";
-        policyText = "Privacy policy";
-        link = "/en/footer-navigation/privacy-policy.html";
-        ok = "Accept";
-        nook = "Decline"
-    }
+    // if ($("html").attr("lang") == "en" || $("html").attr("lang") == "zh" || $("html").attr("lang") == "jp") {
+    //     message = "This website uses cookies to ensure you get the best experience on our website.";
+    //     acceptText = "Accept";
+    //     policyText = "Privacy policy";
+    //     link = "/en/footer-navigation/privacy-policy.html";
+    //     ok = "Accept";
+    //     nook = "Decline"
+    // }
 
 
     // $("footer").after("<div id='cookie-hinweis-container'><span>" + message + "</span><div class='cookiebtns'><a id='cookieagree'>" + ok + "</a><a id='cookienoagree'>" + nook + "</a><a href='" + link + "'>" + policyText + "</a></div></span></div>");

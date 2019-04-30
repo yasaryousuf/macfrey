@@ -27,6 +27,7 @@ class CreateContactsTable extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->text('comment')->nullable();
+            $table->text('item')->nullable();
             $table->string('type');
             $table->timestamps();
         });

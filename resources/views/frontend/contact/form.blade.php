@@ -1,7 +1,16 @@
 <div class="tx-powermail">
 <form action="{{url('contact')}}" method="POST" name="create-contacts">
     @csrf
-    <input type="hidden" name="type" value="{{ Request::is('service/contact') ? 'contact' : 'after-sales-support'}}">
+    <?php
+    $type = 'enquiry';
+    if (Request::is('service/contact')) {
+        $type = 'contact';
+    } elseif (Request::is('service/after-sales-support')) {
+        $type = 'after-sales-support';
+    }
+    ?>
+    <input type="hidden" name="type" value="{{ $type }}">
+    <input type="hidden" name="item" value="<?= (isset($_GET['component']) ? intval($_GET['component']) : '') ; ?>">
     <h3>Contact</h3>
     <div style="padding-top:20px; color:green">
         @include('common.sessionMessage')

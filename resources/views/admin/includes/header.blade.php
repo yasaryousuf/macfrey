@@ -126,15 +126,15 @@
               <img class="img-xs rounded-circle" src="{{ Auth::user()->profile_image ? asset('/images/profile_image/'.Auth::user()->profile_image) : asset('/images/profile_image/avatar.png') }}" alt="Profile image">
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <a class="dropdown-item mt-2">
+              {{-- <a class="dropdown-item mt-2">
                 Manage Accounts
-              </a>
-              <a class="dropdown-item">
+              </a> --}}
+              <a class="dropdown-item mt-2" href="/admin/profile/change-password">
                 Change Password
               </a>
-              <a class="dropdown-item">
+              {{-- <a class="dropdown-item">
                 Check Inbox
-              </a>
+              </a> --}}
 
 
 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">

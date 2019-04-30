@@ -17,8 +17,7 @@
             <div class="csc-header csc-header-n1"><h2 class="csc-firstHeader">{{$service->name}}</h2></div>
             {!! $service->content !!}
 		<!--CONTENT_end-->
-		{{Request::path()}}
-        @if (Request::is('service/contact') || Request::is('service/after-sales-support'))
+        @if (Request::is('service/contact') || Request::is('service/after-sales-support') || Request::is('service/enquiry'))
             @include('frontend.contact.form')
         @endif
 	</div>

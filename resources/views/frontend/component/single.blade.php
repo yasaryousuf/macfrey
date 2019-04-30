@@ -489,6 +489,13 @@
 
                         </div>
 
+                    <div class="productdetailbuttons">
+                        <div class="right">
+                            <a id="addtoinquiry" href="/service/enquiry/?component={{$component->id}}" class="button">
+                                Add to Enquiry
+                            </a>
+                        </div>
+                    </div>      
 
                         <div class="ym-clearfix"></div>
                         <br>
